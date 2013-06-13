@@ -1,4 +1,4 @@
 infieldLabel
 ============
 
-Making infield form labels suck less.
+A jQuery plugin to make infield form labels suck less.
