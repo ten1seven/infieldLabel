@@ -31,6 +31,7 @@
 		// first time input setup
 		base.setup = function() {
 			base.$input = base.$el.find("input[type=text],input[type=password]");
+			base.$label = base.$el.find("label");
 
 			// hide label if there's already a value
 			base.blur();
@@ -49,6 +50,10 @@
 
 				}).on("blur.infield change.infield", function() {
 					base.blur();
+				});
+				base.$label.on("click.infield", function() {
+					// empty onclick to fix older ios devices
+					// http://stackoverflow.com/a/6472181/222155
 				});
 		};
 
