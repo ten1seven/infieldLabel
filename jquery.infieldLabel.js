@@ -30,7 +30,7 @@
 
 		// first time input setup
 		base.setup = function() {
-			base.$input = base.$el.find("input[type=text],input[type=password]");
+			base.$input = base.$el.find("input");
 			base.$label = base.$el.find("label");
 
 			// hide label if there's already a value
