@@ -79,7 +79,7 @@
 		hideClass: 'placeholder-hide'
 	};
 
-	$.fn.infieldLabel = function(options){
+	$.fn.infieldLabel = function(options) {
 		this.each(function(){
 			(new $.infieldLabel(this, options));
 		});
