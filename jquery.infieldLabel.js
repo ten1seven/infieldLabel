@@ -30,8 +30,8 @@
 
 		// first time input setup
 		base.setup = function() {
-			base.$input = base.$el.find("input");
-			base.$label = base.$el.find("label");
+			base.$input = base.$el.find('input');
+			base.$label = base.$el.find('label');
 
 			// hide label if there's already a value
 			base.blur();
@@ -43,28 +43,29 @@
 		// binds the focus, blur and change events
 		base.bind = function() {
 			base.$input
-				.on("focus.infield", function() {
+				.on('focus.infield', function() {
 					base.$el
 						.removeClass(base.options.hideClass)
 						.addClass(base.options.focusClass);
 
-				}).on("blur.infield change.infield", function() {
+				}).on('blur.infield change.infield', function() {
 					base.blur();
 				});
-				base.$label.on("click.infield", function() {
+
+				base.$label.on('click.infield', function() {
 					// empty onclick to fix older ios devices
 					// http://stackoverflow.com/a/6472181/222155
 				});
 		};
 
 		base.blur = function() {
-			if (base.$input.val() !== "") {
+			if (base.$input.val() !== '') {
 				base.$el
 					.removeClass(base.options.focusClass)
 					.addClass(base.options.hideClass);
 
 			} else {
-				base.$el.removeClass(base.options.focusClass + " " + base.options.hideClass);
+				base.$el.removeClass(base.options.focusClass + ' ' + base.options.hideClass);
 			}
 		};
 
@@ -74,8 +75,8 @@
 	};
 
 	$.infieldLabel.defaultOptions = {
-		focusClass: "placeholder-focus",
-		hideClass: "placeholder-hide"
+		focusClass: 'placeholder-focus',
+		hideClass: 'placeholder-hide'
 	};
 
 	$.fn.infieldLabel = function(options){
