@@ -12,6 +12,12 @@ Read the full post: http://viget.com/inspire/making-infield-form-labels-suck-les
 - If the input contains text, the label is hidden.
 - Hidden labels re-appear above the input any time it receives focus.
 
+## Install with Bower
+
+```console
+$ bower install infieldLabel
+```
+
 ## Usage
 
 - Build input fields like normal using a label.
