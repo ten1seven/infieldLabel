@@ -1,4 +1,4 @@
-/*! jquery.infieldLabel.js v 1.0 | Author: Jeremy Fields [jeremy.fields@viget.com], 2013 | License: MIT */
+/*! jquery.infieldLabel.js v 1.0.1 | Author: Jeremy Fields [jeremy.fields@viget.com], 2014 | License: MIT */
 
 (function($){
 
