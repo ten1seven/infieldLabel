@@ -10,10 +10,6 @@
 
 		// Access to jQuery and DOM versions of element
 		base.$el = $(el);
-		base.el = el;
-
-		// Add a reverse reference to the DOM object
-		base.$el.data("infieldLabel", base);
 
 		// internal variables
 		base.$input = null;
