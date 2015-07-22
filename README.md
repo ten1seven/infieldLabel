@@ -38,7 +38,7 @@ $ bower install infieldLabel
 ```html
 <link href="jquery.infieldLabel.css" rel="stylesheet">
 <script src="jquery.js"></script>
-<script src="jquery.sticky.js"></script>
+<script src="jquery.infieldLabel.js"></script>
 <script>
 	$(function() {
 		$('.infield-label').infieldLabel();
