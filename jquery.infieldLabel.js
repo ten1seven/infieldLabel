@@ -49,8 +49,10 @@
 				});
 
 				base.$label.on('click.infield', function() {
-					// empty onclick to fix older ios devices
-					// http://stackoverflow.com/a/6472181/222155
+					base.$el
+						.removeClass(base.options.hideClass)
+						.addClass(base.options.focusClass);
+					base.$input.focus()
 				});
 		};
 
