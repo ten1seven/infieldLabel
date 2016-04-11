@@ -1,0 +1,39 @@
+@import '_reset.scss';
+
+/* basic html styling */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 50px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+
+p {
+  margin: 0 0 20px;
+}
+
+/* input styling */
+.input {
+  background: #fff;
+  border: 1px solid #c4c4c4;
+  color: black;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  height: 38px;
+  margin: 0;
+  outline: none;
+  padding: 0 10px;
+
+  .lt-ie9 & {
+    line-height: 38px;
+  }
+
+  &:focus {
+    border-color: #08c;
+    box-shadow: 0 0 6px rgba(0,136,204,0.4);
+  }
+}
