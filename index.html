@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>jQuery infieldLabel Plugin</title>
+
+    <link rel="stylesheet" href="assets/styles/reset.css">
+    <link rel="stylesheet" href="assets/styles/base.css">
+    <link rel="stylesheet" href="assets/styles/jquery.infieldLabel.css">
+
+    <!-- no-js/js class switcher -->
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+
+  </head>
+  <body>
+
+    <h1>jQuery infieldLabel Demo</h1>
+
+    <p>
+      <span class="infield-label">
+        <label for="fname">First Name</label>
+        <input type="text" name="fname" id="fname" class="input" size="50">
+      </span>
+    </p>
+
+    <p>
+      <span class="infield-label">
+        <label for="lname">Last Name</label>
+        <input type="text" name="lname" id="lname" class="input" size="50">
+      </span>
+    </p>
+
+    <p>
+      <span class="infield-label">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" class="input" size="50">
+      </span>
+    </p>
+
+    <!-- Javascript -->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="jquery.infieldLabel.js"></script>
+    <script>
+      $(function() {
+        $('.infield-label').infieldLabel();
+      });
+    </script>
+
+  </body>
+</html>
