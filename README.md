@@ -12,10 +12,18 @@ Read the full post: http://viget.com/inspire/making-infield-form-labels-suck-les
 - If the input contains text, the label is hidden.
 - Hidden labels re-appear above the input any time it receives focus.
 
-## Install with Bower
+## Installing
 
-```console
-$ bower install infieldLabel
+Download the file directly...
+
+```shell
+bower install infieldLabel
+```
+
+or install via NPM...
+
+```shell
+npm install infieldLabel
 ```
 
 ## Usage
@@ -25,10 +33,10 @@ $ bower install infieldLabel
 
 ```html
 <p>
-	<span class="infield-label">
-		<label for="myLabel">My Label</label>
-		<input type="text" name="myLabel" id="myLabel" class="input" size="50">
-	</span>
+  <span class="infield-label">
+    <label for="myLabel">My Label</label>
+    <input type="text" name="myLabel" id="myLabel" class="input" size="50">
+  </span>
 </p>
 ````
 
@@ -40,9 +48,9 @@ $ bower install infieldLabel
 <script src="jquery.js"></script>
 <script src="jquery.infieldLabel.js"></script>
 <script>
-	$(function() {
-		$('.infield-label').infieldLabel();
-	});
+  $(function() {
+    $('.infield-label').infieldLabel();
+  });
 </script>
 ```
 
