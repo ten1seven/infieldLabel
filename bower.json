@@ -1,27 +1,29 @@
 {
-	"name": "infieldLabel",
-	"version": "1.0.1",
-	"description": "infieldLabel is a jQuery plugin that creates a compact, text-over-input, form layout while using semabtic HTML and preserving usability and accessibility.",
-	"categories": [ "UI", "DOM" ],
-	"author": {
-		"name": "Jeremy Fields"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/ten1seven/infieldLabel.git"
-	},
-	"bugs": {
-		"web": "https://github.com/ten1seven/infieldLabel/issues"
-	},
-	"licenses": [
-		{
-			"type": "MIT",
-			"url": "http://jquery.com/blob/master/MIT-LICENSE.txt"
-		}
-	],
-	"github": "https://github.com/ten1seven/infieldLabel",
-	"main": "jquery.infieldLabel.js",
-	"dependencies": {
-		"jquery": null
-	}
+  "name": "infieldLabel",
+  "version": "1.0.2",
+  "homepage": "https://github.com/ten1seven/infieldLabel",
+  "authors": [
+    "Jeremy Fields <jeremy.fields@viget.com>"
+  ],
+  "description": "A jQuery plugin that creates a compact, text-over-input, form layout while using semabtic HTML and preserving usability and accessibility.",
+  "main": "jquery.infieldLabel.js",
+  "keywords": [
+    "ui",
+    "dom",
+    "input",
+    "javascript",
+    "jquery"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ten1seven/infieldLabel.git"
+  }
 }
