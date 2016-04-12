@@ -3,7 +3,7 @@
   "version": "1.0.2",
   "homepage": "https://github.com/ten1seven/infieldLabel",
   "authors": [
-    "Jeremy Fields <jeremy.fields@viget.com>"
+    "Jeremy Fields <jeremy@ten1seven.com>"
   ],
   "description": "A jQuery plugin that creates a compact, text-over-input, form layout while using semabtic HTML and preserving usability and accessibility.",
   "main": "jquery.infieldLabel.js",
