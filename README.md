@@ -16,6 +16,8 @@ Read the full post: http://viget.com/inspire/making-infield-form-labels-suck-les
 
 Download the file directly...
 
+or install via Bower...
+
 ```shell
 bower install infieldLabel
 ```
