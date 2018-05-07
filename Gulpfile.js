@@ -1,29 +1,27 @@
-var autoprefixer         = require('autoprefixer');
-var banner               = ['/**',
+const banner = [
+  '/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
   ' * @version v<%= pkg.version %>',
   ' * @link <%= pkg.homepage %>',
   ' * @license <%= pkg.license %>',
   ' */',
-  ''].join('\n');
-var autoprefixerBrowsers = ['last 3 versions', '> 1%', 'ie >= 9']
-var browserSync          = require('browser-sync').create();
-var del                  = require('del');
-var extname              = require('gulp-extname');
-var gulp                 = require('gulp');
-var header               = require('gulp-header');
-var include              = require('gulp-include');
-var jshint               = require('gulp-jshint');
-var notify               = require('gulp-notify');
-var pkg                  = require('./package.json');
-var plumber              = require('gulp-plumber');
-var postcss              = require('gulp-postcss');
-var precss               = require('precss');
-var rename               = require('gulp-rename');
-var runSequence          = require('run-sequence');
-var stylish              = require('jshint-stylish');
-var uglify               = require('gulp-uglify');
-
+  ''
+].join('\n')
+const autoprefixer = require('autoprefixer')
+const browserSync = require('browser-sync').create()
+const del = require('del')
+const gulp = require('gulp')
+const header = require('gulp-header')
+const notify = require('gulp-notify')
+const pkg = require('./package.json')
+const plumber = require('gulp-plumber')
+const postcss = require('gulp-postcss')
+const rename = require('gulp-rename')
+const runSequence = require('run-sequence')
+const sass = require('gulp-sass')
+const sassGlob = require('gulp-sass-glob')
+const sourcemaps = require('gulp-sourcemaps')
+const uglify = require('gulp-uglify')
 
 /*
   --------------------
@@ -31,10 +29,9 @@ var uglify               = require('gulp-uglify');
   --------------------
 */
 
-gulp.task('clean', function () {
-  return del(['**/.DS_Store']);
-});
-
+gulp.task('clean', () => {
+  return del(['**/.DS_Store', './assets/*'])
+})
 
 /*
   --------------------
@@ -42,18 +39,15 @@ gulp.task('clean', function () {
   --------------------
 */
 
-gulp.task('scripts', function() {
+gulp.task('scripts', () => {
   return gulp.src(['./jquery.infieldLabel.js'])
     .pipe(plumber({errorHandler: notify.onError("Error: <%= error.message %>")}))
-    .pipe(jshint())
-    .pipe(jshint.reporter(stylish))
     .pipe(uglify())
     .pipe(rename('jquery.infieldLabel.min.js'))
     .pipe(header(banner, { pkg : pkg } ))
     .pipe(gulp.dest('./'))
-    .pipe(notify('Scripts uglify task complete'));
-});
-
+    .pipe(notify('Scripts uglify task complete'))
+})
 
 /*
   --------------------
@@ -61,54 +55,50 @@ gulp.task('scripts', function() {
   --------------------
 */
 
-gulp.task('styles:infieldLabel', function () {
-  var processors = [
-    precss,
-    autoprefixer({
-      browsers: autoprefixerBrowsers
-    }),
-  ];
+let processors = [
+  autoprefixer({
+    browsers: ['last 3 versions', '> 1%', 'ie >= 10']
+  })
+]
 
+gulp.task('styles:infieldLabel', () => {
   return gulp.src([
       './src/styles/jquery.infieldLabel.scss'
     ])
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
+    .pipe(sourcemaps.init())
+    .pipe(sassGlob())
+    .pipe(sass())
     .pipe(postcss(processors))
-    .pipe(extname())
+    .pipe(sourcemaps.write('maps'))
     .pipe(gulp.dest('./'))
-    .pipe(browserSync.stream());
-});
+    .pipe(browserSync.stream())
+})
 
-gulp.task('styles:other', function () {
-  var processors = [
-    precss,
-    autoprefixer({
-      browsers: autoprefixerBrowsers
-    }),
-  ];
-
+gulp.task('styles:other', () => {
   return gulp.src([
       './src/styles/index.scss'
     ])
     .pipe(plumber({
       errorHandler: notify.onError("Error: <%= error.message %>")
     }))
-    .pipe(include())
+    .pipe(sourcemaps.init())
+    .pipe(sassGlob())
+    .pipe(sass())
     .pipe(postcss(processors))
-    .pipe(extname())
+    .pipe(sourcemaps.write('maps'))
     .pipe(gulp.dest('./assets/styles'))
-    .pipe(browserSync.stream());
-});
+    .pipe(browserSync.stream())
+})
 
-gulp.task('styles', function() {
+gulp.task('styles', () => {
   runSequence(
     'styles:infieldLabel',
     'styles:other'
-  );
-});
-
+  )
+})
 
 /*
   --------------------
@@ -116,16 +106,18 @@ gulp.task('styles', function() {
   --------------------
 */
 
-gulp.task('default', function() {
-  runSequence('clean', ['scripts'], function() {
+gulp.task('default', () => {
+  runSequence('clean', ['scripts', 'styles'], () => {
     browserSync.init({
       server: {
         baseDir: './'
       }
-    });
+    })
+
+    gulp.watch(['./src/styles/{,*/}{,*/}*.scss'], ['styles'])
 
     gulp.watch([
       './jquery.infieldLabel.js'
-    ], ['scripts']).on('change', browserSync.reload);
-  });
-});
+    ], ['scripts']).on('change', browserSync.reload)
+  })
+})
