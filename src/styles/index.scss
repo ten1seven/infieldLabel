@@ -17,23 +17,33 @@ p {
 }
 
 /* input styling */
-.input {
+.input,
+.textarea {
   background: #fff;
   border: 1px solid #c4c4c4;
   color: black;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  height: 38px;
   margin: 0;
   outline: none;
-  padding: 0 10px;
-
-  .lt-ie9 & {
-    line-height: 38px;
-  }
+  transition: all .2s ease;
+  width: 300px;
 
   &:focus {
     border-color: #08c;
     box-shadow: 0 0 6px rgba(0,136,204,0.4);
   }
+}
+
+.input {
+  height: 38px;
+  padding: 0 10px;
+
+  .lt-ie9 & {
+    line-height: 38px;
+  }
+}
+
+.textarea {
+  padding: 10px;
 }
