@@ -17,17 +17,16 @@
       base.setup();
     };
 
-
     /*
-      --------------------
-      Set up
-      --------------------
-    */
+     * set up
+     */
 
     // first time input setup
     base.setup = function() {
-      base.$input = base.$el.find('input');
+      base.$input = base.$el.find('input, textarea');
       base.$label = base.$el.find('label');
+
+      base.$el.addClass('init');
 
       // hide label if there's already a value
       base.blur();
@@ -70,19 +69,16 @@
     };
 
     /*
-      --------------------
-      Initialize
-      --------------------
-    */
+     * initialize
+     */
+
     base.init();
   };
 
 
   /*
-    --------------------
-    Options
-    --------------------
-  */
+   * options
+   */
 
   $.infieldLabel.defaultOptions = {
     focusClass: 'placeholder-focus',
